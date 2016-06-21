@@ -1,0 +1,6 @@
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    <p>1st file : <input type="file" name="File1" /></p>
+    <p>2nd file : <input type="file" name="File2" /></p>
+    <p>3rd file : <input type="file" name="File3" /></p>
+    <input type="submit" name="submit" value="Upload" />
+</form>

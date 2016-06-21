@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select a picture</title>
+
+    <style>
+      .item {
+        position: relative;
+        float: left;
+        width:  {{ size.width }}px;
+        height: {{ size.height }}px;
+        background-position: 50% 50%;
+        background-repeat:   no-repeat;
+        background-size:     cover;
+      }
+    </style>
+    {{ script | safe }}
+</head>
+
+<body>
+    <div id="container">
+        {%  for file in files %}
+          <div class="item" style="background-image:url('{% static "img/" %}{{ file.filename }}')";></div>
+        {%  endfor %}
+    </div>
+    <script>
+      var container = document.querySelector( '#container' );
+      var msnry = new Masonry( container, {
+        // options
+        columnWidth: 110,
+        itemSelector: '.item',
+      } );
+    </script>
+</body>
+
+
+</html>
+
