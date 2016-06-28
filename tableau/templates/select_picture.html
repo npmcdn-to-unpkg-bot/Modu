@@ -15,14 +15,22 @@
         background-repeat:   no-repeat;
         background-size:     cover;
       }
+      .div_size img{
+          height: 100%;
+          width: 100%;
+      }
     </style>
     {{ script | safe }}
 </head>
 
 <body>
-    <div id="container">
+    <div id="container" class="div_size">
         {%  for file in files %}
-          <div class="item" style="background-image:url('{% static "img/" %}{{ file.filename }}')";></div>
+          <div id="{{ file.id }}" class="item" style="border:1px solid black;";>
+            <a href="result/{{ file.id }}">
+              <img src="{% static "img/" %}{{ file.filename }}"/>
+            </a>
+          </div>
         {%  endfor %}
     </div>
     <script>
