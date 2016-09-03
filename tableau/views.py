@@ -19,7 +19,7 @@ def update(request):
         colors.save()
 
 def index(request):
-    script = '''<script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>'''
+    script = '''<script src="https://unpkg.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>'''
     files = Files.objects.all()
     size = {'width':200, 'height':300}
     return render(request, 'select_picture.html', {'script':script, 'files':files, 'size':size})
